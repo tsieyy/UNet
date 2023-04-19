@@ -6,7 +6,7 @@ from _03Unet import *
 from _04Loss import *
 
 WeightCoefficient = 2
-Lr = 0.01
+Lr = 0.005
 Epochs = 300
 LrDecay = 0.1
 BatchSize = 30
@@ -17,7 +17,8 @@ SavePerEpoch = 300  # 保存结果的epoch
 
 FolderPath = '../Dataset'
 TrainDataset, TrainDataLoader, ValDataset, ValDataLoader = PipeDatasetLoader(FolderPath, BatchSize)
-# %% Unet_BCELoss_Adam
+
+# Unet_BCELoss_Adam
 Unet = UNet(in_channels=3, out_channels=1, init_features=4, WithActivateLast=True, ActivateFunLast = torch.sigmoid).to('cpu')
 SaveFolder = 'Output'
 Criterion = nn.BCELoss().to('cuda')
@@ -30,7 +31,7 @@ logging.warning('WeightCoefficient:{0:03d}'.format(WeightCoefficient))
 
 LrScheduler = torch.optim.lr_scheduler.StepLR(Optimizer, step_size=LrDecayPerEpoch, gamma=LrDecay)  # 设置学习率策略
 for Epoch in range(1, Epochs + 1):
-	# %% 训练
+	# 训练
 	Unet.train()  # 训练模式
 	# torch.cuda.empty_cache()  # 释放缓存占用, 耗时大概0.05s
 	# 训练一个Epoch

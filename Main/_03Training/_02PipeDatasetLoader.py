@@ -9,7 +9,7 @@ from torch.utils.data import Dataset, DataLoader
 from torchvision.transforms import transforms
 
 InputImgSize=(128,128)
-# %% 训练过程图片的变换
+# 训练过程图片的变换
 TrainImgTransform = transforms.Compose([
 	# transforms.RandomAffine(degrees=(-10, 10), translate=(0.1, 0.1), scale=(0.5, 2.), shear=10),
 	# transforms.RandomHorizontalFlip(),
@@ -29,7 +29,7 @@ TrainLabelTransform = transforms.Compose([
 	transforms.ToTensor(),
 ])
 
-# %% 测试过程图片变换
+# 测试过程图片变换
 ValImgTransform = transforms.Compose([
 	transforms.Resize(InputImgSize),
 	transforms.ToTensor(),
@@ -68,14 +68,14 @@ class PipeDataset(Dataset):
 		LabelImg = np.array(LabelImg)*255
 		LabelImg = Image.fromarray(LabelImg)
 
-		# %% 保证样本和标签具有相同的变换
+		# 保证样本和标签具有相同的变换
 		seed = np.random.randint(2147483647)
 		random.seed(seed)
 		FusionImg = self.ImgTransform(FusionImg)
 		random.seed(seed)
 		LabelImg = self.LabelTransform(LabelImg)
 
-		# %% 显示Sample
+		# 显示Sample
 		if self.ShowSample:
 			plt.figure(self.SampleFolders[item])
 			Img = FusionImg.numpy()[0]
