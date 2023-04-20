@@ -6,7 +6,7 @@
 （2）标注图像，生成训练数据
 	a.在WarpedImg图片基础上，使用Labelme进行标注；
 	b.标注图像和标签拷贝至OriLabelDataset；
-	c.运行_02GemerateDataset.py，得到适用于神经网络训练的标签数据.
+	c.运行_02GemerateDataset.py，得到适用于神经网络训练的标签数据，保存到data文件夹下.
 	
 （3）训练
 	a.将步骤（2）生成标签数据全部拷贝至Dataset\Train下，同时Val文件夹下也需要随机拷贝几个；

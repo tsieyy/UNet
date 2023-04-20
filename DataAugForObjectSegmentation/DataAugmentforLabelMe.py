@@ -196,7 +196,7 @@ if __name__ == '__main__':
     # 获取相关参数
     parser = argparse.ArgumentParser()
     parser.add_argument('--source_img_json_path', type=str, default='data')
-    parser.add_argument('--save_img_json_path', type=str, default='data2')
+    parser.add_argument('--save_img_json_path', type=str, default='data_aug')
     args = parser.parse_args()
     source_img_json_path = args.source_img_json_path  # 图片和json文件原始位置
     save_img_json_path = args.save_img_json_path  # 图片增强结果保存文件
