@@ -7,19 +7,19 @@ from _04Loss import *
 
 WeightCoefficient = 2
 Lr = 0.005
-Epochs = 300
+Epochs = 500
 LrDecay = 0.1
 BatchSize = 30
 LrDecayPerEpoch = 100  # 学习率调整的epoch
 ValidPerEpoch = 50  # 测试的epoch
-SavePerEpoch = 300  # 保存结果的epoch
+SavePerEpoch = 100  # 保存结果的epoch
 
 
-FolderPath = '../Dataset'
+FolderPath = '../../Dataset'
 TrainDataset, TrainDataLoader, ValDataset, ValDataLoader = PipeDatasetLoader(FolderPath, BatchSize)
 
 # Unet_BCELoss_Adam
-Unet = UNet(in_channels=3, out_channels=1, init_features=4, WithActivateLast=True, ActivateFunLast = torch.sigmoid).to('cpu')
+Unet = UNet(in_channels=3, out_channels=1, init_features=4, WithActivateLast=True, ActivateFunLast=torch.sigmoid).to('cpu')
 SaveFolder = 'Output'
 Criterion = nn.BCELoss().to('cuda')
 Optimizer = torch.optim.Adam(Unet.parameters(), lr=Lr)
