@@ -7,3 +7,5 @@ Output
 *.avi
 *.mp4
 .idea
+data_aug
+img_aug

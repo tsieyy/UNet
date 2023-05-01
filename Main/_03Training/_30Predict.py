@@ -17,9 +17,8 @@ def read_images(path): # 读取图像
 			img_files.append(file)
 	return img_files
 
-# %% 载入数据、模型
 # FolderPath = '/home/cxq/workspace2/2019.10.23PipeEdgeDetecion/2019.10.23LossFunctionTest/Test/Dataset'
-FolderPath = '../Dataset'
+FolderPath = '../../Dataset'
 UnconvertedPath = './Output/Unconverted'
 ConvertedPath = './Output/Converted'
 MaskPath = './Output/Mask'
@@ -33,7 +32,6 @@ SaveFolder = 'Output'
 Unet = UNet(in_channels=3, out_channels=1, init_features=4, WithActivateLast=True, ActivateFunLast=torch.sigmoid).to(Device)
 Unet.load_state_dict(torch.load(os.path.join(SaveFolder, '0300.pt'), map_location=Device))
 
-# %% 测试
 Unet.eval()  # 评估模式
 torch.set_grad_enabled(False)
 OutputS = []        # 存储检测数据，用于指标计算

@@ -6,8 +6,8 @@ from _03Unet import *
 from _04Loss import *
 
 WeightCoefficient = 2
-Lr = 0.005
-Epochs = 500
+Lr = 0.0005
+Epochs = 400
 LrDecay = 0.1
 BatchSize = 30
 LrDecayPerEpoch = 100  # 学习率调整的epoch
